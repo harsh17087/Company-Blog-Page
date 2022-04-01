@@ -1,0 +1,38 @@
+PROJECT VIEWS
+
+*** CORE
+ - Index
+ - Info
+
+*** USERS
+ - Register
+ - Login
+ - logout
+ - Account
+ - User Posts
+
+*** BLOG POSTS
+
+ - Create
+ - Update
+ - Delete
+ - Blog Post
+
+PROJECT MODELS
+
+*** USERS
+
+ - ID
+ - Profile Image
+ - Username
+ - Password
+ - Email
+ - Posts
+
+*** BLOG POSTS
+
+ - ID
+ - User_id
+ - Date
+ - Title
+ - Text
