@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+
 app = Flask(__name__)
 
 # ******* LOGIN CONF *********
@@ -26,7 +27,9 @@ Migrate(app, db)
 # ********************************
 
 from myProjectApp.core.views import core
+from myProjectApp.users.views import users
 from myProjectApp.error_pages.handlers import error_pages
 
 app.register_blueprint(core)
+app.register_blueprint(users)
 app.register_blueprint(error_pages)
