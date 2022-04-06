@@ -86,5 +86,13 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
 
-    profile_image = url_for('static', filename='profile_pics/'+current_user.profile_image)
-    return render_template('account.html',profile_image=profile_image,form=form)
+    profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
+    return render_template('account.html', profile_image=profile_image, form=form)
+
+
+@users.route("/<username>")
+def user_posts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_400()
+    blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page, per_page=5)
+    return render_template('user_blog_posts.html', blog_posts=blog_posts, user=user)
